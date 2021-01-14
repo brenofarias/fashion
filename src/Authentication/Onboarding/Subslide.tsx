@@ -5,10 +5,10 @@ import Button from '../../components/Button';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 44,
+    flex: 1,
   },
 
   subtitle: {
