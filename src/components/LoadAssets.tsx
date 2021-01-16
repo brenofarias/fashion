@@ -53,7 +53,7 @@ const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
 
     if (!isNavigationReady) {
       restoreState();
-    }
+    } 
   }, [isNavigationReady]);
   const onStateChange = useCallback(
     (state) =>
