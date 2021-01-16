@@ -3,18 +3,13 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useRef } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import {
-  useValue,
-  interpolateColor,
-  useScrollHandler,
-} from 'react-native-redash';
+import { interpolateColor, useScrollHandler } from 'react-native-redash';
 import Animated, { divide, multiply } from 'react-native-reanimated';
 
-import Slide, { SLIDE_HEIGHT } from './Slide';
+import Slide, { SLIDE_HEIGHT, BORDER_RADIUS } from './Slide';
 import Subslide from './Subslide';
 import Dot from './Dot';
 
-const BORDER_RADIUS = 75;
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
