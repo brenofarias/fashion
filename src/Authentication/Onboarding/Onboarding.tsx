@@ -2,7 +2,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-array-index-key */
 import React, { useRef } from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Image,
+  TextStyle,
+  ImageStyle,
+  ViewStyle,
+} from 'react-native';
 import { interpolateColor, useScrollHandler } from 'react-native-redash';
 import Animated, {
   divide,
@@ -14,11 +22,13 @@ import Animated, {
 import Slide, { SLIDE_HEIGHT } from './Slide';
 import Subslide from './Subslide';
 import Dot from './Dot';
-import { theme } from '../../components';
+import { makeStyle, Theme } from '../../components/Theme';
+import { useTheme } from '../../components';
 import { Routes, StackNavigationProps } from '../../components/Navigation';
 
 const { width } = Dimensions.get('window');
-const styles = StyleSheet.create({
+
+const useStyles = makeStyle((theme: Theme) => ({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -53,7 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-});
+}));
 
 const slides = [
   {
@@ -111,6 +121,8 @@ export const assets = slides.map((slide) => slide.picture.src);
 const Onboarding = ({
   navigation,
 }: StackNavigationProps<Routes, 'Onboarding'>) => {
+  const styles = useStyles();
+  const theme = useTheme();
   const scroll = useRef<Animated.ScrollView>(null);
   const { scrollHandler, x } = useScrollHandler();
   const backgroundColor = interpolateColor(x, {
